@@ -14,7 +14,7 @@ export default function App() {
   let ihStyle;
   ihStyle = {
     color: theme ? "" : "white",
-    backgroundColor: theme ? "white" : "hsl(209, 23%, 22%)"
+    backgroundColor: theme ? "white" : "hsl(209, 23%, 22%)",
   };
   return (
     <>
