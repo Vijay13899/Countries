@@ -26,8 +26,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: (https://vijay13899.github.io/Countries/)
 
 ## My process
 
@@ -41,6 +40,5 @@ Users should be able to:
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/Vijay13899)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
+- Frontend Mentor - (https://www.frontendmentor.io/profile/Vijay13899)
+- LinkedIn - (https://www.linkedin.com/in/vijay-s-v-mit)
