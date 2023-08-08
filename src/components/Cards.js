@@ -6,7 +6,7 @@ function Cards({ Countriesdata, theme }) {
   ihStyle = {
     color: theme ? "" : "white",
     backgroundColor: theme ? "white" : "hsl(209, 23%, 22%)",
-    boxShadow: `5px 5px 25px ${theme ? "#aaa" : "#000"}`
+    boxShadow: `5px 5px 25px ${theme ? "#aaa" : "#000"}`,
   };
   return (
     <>

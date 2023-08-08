@@ -21,6 +21,102 @@ function CountryDetail({ theme }) {
     border: "none",
     boxShadow: theme ? "2px 2px 10px #aaa" : "2px 2px 10px hsl(207, 26%, 10%)",
   };
+  // const [isLoaded, setIsLoaded] = useState(false);
+  function numberToWords(number) {
+    // Word representations for numbers 0 to 19
+    const units = [
+      "zero",
+      "one",
+      "two",
+      "three",
+      "four",
+      "five",
+      "six",
+      "seven",
+      "eight",
+      "nine",
+      "ten",
+      "eleven",
+      "twelve",
+      "thirteen",
+      "fourteen",
+      "fifteen",
+      "sixteen",
+      "seventeen",
+      "eighteen",
+      "nineteen",
+    ];
+
+    // Word representations for tens
+    const tens = [
+      "",
+      "",
+      "twenty",
+      "thirty",
+      "forty",
+      "fifty",
+      "sixty",
+      "seventy",
+      "eighty",
+      "ninety",
+    ];
+
+    // Word representations for large units (thousands, millions, billions, etc.)
+    const largeUnits = [
+      "",
+      "thousand",
+      "million",
+      "billion",
+      "trillion",
+      "quadrillion",
+      "quintillion",
+    ];
+
+    if (number === 0) {
+      return units[number];
+    }
+
+    // Function to convert a three-digit number to words
+    function convertThreeDigitNumber(num) {
+      const hundred = Math.floor(num / 100);
+      const remainder = num % 100;
+      let words = "";
+
+      if (hundred > 0) {
+        words += units[hundred] + " hundred ";
+      }
+
+      if (remainder > 0) {
+        if (remainder < 20) {
+          words += units[remainder];
+        } else {
+          const ten = Math.floor(remainder / 10);
+          const unit = remainder % 10;
+          words += tens[ten] + " " + units[unit];
+        }
+      }
+
+      return words.trim();
+    }
+
+    // Split the number into groups of three digits
+    const groups = [];
+    while (number > 0) {
+      groups.push(number % 1000);
+      number = Math.floor(number / 1000);
+    }
+
+    // Convert each group into words and concatenate them
+    let result = "";
+    for (let i = groups.length - 1; i >= 0; i--) {
+      const group = groups[i];
+      if (group !== 0) {
+        result += convertThreeDigitNumber(group) + " " + largeUnits[i] + " ";
+      }
+    }
+
+    return result.trim();
+  }
   return (
     <>
       <div className="detail" style={{ ...textStyle, ...style }}>
@@ -35,7 +131,13 @@ function CountryDetail({ theme }) {
               <span className="title">Native Name:</span> {country.nativeName}
             </p>
             <p>
-              <span className="title">Population:</span> {country.population}
+              <span className="title">Population:</span>{" "}
+            </p>
+            <p>
+              {country.population +
+                " (" +
+                numberToWords(country.population) +
+                ")"}
             </p>
             <p>
               <span className="title">Region:</span> {country.region}
